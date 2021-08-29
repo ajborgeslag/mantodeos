@@ -1,10 +1,12 @@
 <?php
 
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Producto;
 
 
-class SearchRequest extends FormRequest
+use App\Http\Requests\FormRequest;
+
+class SearchCatRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +27,7 @@ class SearchRequest extends FormRequest
     {
         return [
             'limit' => 'required',
+            'categoria' => 'required|integer',
         ];
     }
 }

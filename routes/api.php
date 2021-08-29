@@ -23,4 +23,8 @@ Route::group(['middleware' => []], function() {
     //Categoria
     Route::get('/categoria/list','CategoriaController@index');
     Route::get('/categoria/popular','CategoriaController@popular');
+    //producto
+    Route::post('/producto/search','ProductoController@search');
+    Route::post('/producto/search-cat','ProductoController@searchCategoria');
+    Route::get('/producto/popular','ProductoController@popular');
 });

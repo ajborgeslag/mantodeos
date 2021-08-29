@@ -85,16 +85,4 @@ class CategoriaController extends Controller
     {
         //
     }
-
-    public function search(SearchRequest $searchRequest)
-    {
-        return response(["success"=>false, "message" => trans('messages.internal_server_error')], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
-        /*try{
-            $data = $this->userService->searchUser(json_decode($searchRequest->getContent()));
-            return response(["success"=>!!$data, "data" => $data, "message" => trans('messages.success')], JsonResponse::HTTP_CREATED);
-        }
-        catch (\Exception $e) {
-            return response(["success"=>false, "message" => trans('messages.internal_server_error')], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
-        }*/
-    }
 }
