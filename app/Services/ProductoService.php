@@ -56,4 +56,17 @@ class ProductoService
             throw new \Exception($e->getMessage());
         }
     }
+
+    public function getProducto($id){
+        return Producto::find($id);
+    }
+
+    public function getListProducts($idsList){
+        try{
+            $collection = Producto::find($idsList); // returns a collection of models
+            return $collection;
+        }catch (\Exception $e){
+        }
+        throw new \Exception(($e->getMessage()));
+    }
 }

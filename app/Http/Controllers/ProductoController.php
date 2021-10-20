@@ -45,7 +45,16 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+            $data = $this->productoService->getProducto($id);
+            if($data)
+                return response(["success"=>!!$data, "data" => $data, "message" => trans('messages.success')], JsonResponse::HTTP_OK);
+            else return response(["success"=>!!$data, "data" => $data, "message" => trans('messages.entity_not_found')], JsonResponse::HTTP_NOT_FOUND);
+        }
+        catch (\Exception $e) {
+            return response(["success"=>false, "message" => trans('messages.internal_server_error')], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     /**
@@ -102,5 +111,18 @@ class ProductoController extends Controller
         catch (\Exception $e) {
             return response(["success"=>false, "message" => trans('messages.internal_server_error')], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function listByIds(Request $request)
+    {
+        try{
+            $idlists = json_decode($request->getContent());
+            $data = $this->productoService->getListProducts($idlists);
+            return response(["success"=>!!$data, "data" => $data, "message" => trans('messages.success')], JsonResponse::HTTP_OK);
+        }
+        catch (\Exception $e) {
+            return response(["success"=>false, "message" => trans('messages.internal_server_error')], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
     }
 }

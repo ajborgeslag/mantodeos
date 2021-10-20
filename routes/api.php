@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\CategoriaController;
@@ -27,4 +29,14 @@ Route::group(['middleware' => []], function() {
     Route::post('/producto/search','ProductoController@search');
     Route::post('/producto/search-cat','ProductoController@searchCategoria');
     Route::get('/producto/popular','ProductoController@popular');
+    Route::get('/producto/{id}','ProductoController@show');
+    Route::post('/producto/listByIds','ProductoController@listByIds');
+
+    //ShoppingCart
+    Route::get('cart/list', 'CartController@cartList');
+    Route::post('cart/add', 'CartController@addToCart');
+    Route::delete('cart/empty', 'CartController@emptyCart');
+    Route::post('cart/update', 'CartController@updateCart');
+    Route::delete('cart/remove', 'CartController@removeProduct');
+
 });

@@ -17,5 +17,10 @@ return [
     'logged_out' => 'Auth logged out.',
     'invalid_parent' => 'Invalid parent.',
     'access_error' => 'Access error.',
-    'value_exist' => 'The entity or value already exist',
+    'value_exist' => 'The entity or value already exist.',
+    'product_not_exist' => 'No existe el producto en la base de datos.',
+    'product_added_to_cart' => 'Producto agregado al carrito.',
+    'product_updated_in_cart' => 'Producto modificado satisfactoriamente.',
+    'product_deleted_from_cart' => 'Producto eliminado satisfactoriamente.',
+    'product_not_exist_in_cart' => 'EL producto no existe en el carrito.',
 ];
