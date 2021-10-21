@@ -32,7 +32,7 @@ Route::group(['middleware' => []], function() {
     Route::get('/producto/{id}','ProductoController@show');
     Route::post('/producto/listByIds','ProductoController@listByIds');
 
-    //ShoppingCart
+    //CartRoutes
     Route::get('cart/list', 'CartController@cartList');
     Route::post('cart/add', 'CartController@addToCart');
     Route::delete('cart/empty', 'CartController@emptyCart');
